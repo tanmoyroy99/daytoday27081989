@@ -53,7 +53,7 @@ app.use('/api/day2day', day2day);
 app.use(error);
 
 
-
-app.listen(8080,function(){
-    console.log('Express app start on port.. 8080')
+const port = process.env.PORT || 8080;
+app.listen(port,function(){
+    console.log(`Listening on port ${port}...`)
 });
