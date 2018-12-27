@@ -95,7 +95,7 @@ router.get('/info/all/', authentication, async (req, res) =>{
 router.get('/info/alljoin/', authentication, async (req, res) =>{
 	//const day2dayPaymentType_data = new Day2dayPaymentType();
 	const day2dayPaymentEntryviewAll = await Day2dayPaymentEntry.find({ user_id: req.userdata._id})
-											.sort({ occupation: -1 })
+											.sort({datetime: 'asc'})
 											.populate('day2dayPaymentType', 'type_name -_id');
 	console.log(day2dayPaymentEntryviewAll);
 	res.send(day2dayPaymentEntryviewAll);
