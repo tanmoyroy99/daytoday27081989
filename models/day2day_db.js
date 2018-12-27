@@ -72,8 +72,8 @@ const Day2dayPaymentEntry = mongoose.model('Day2dayPaymentEntry', day2dayPayment
 
 function validateday2dayPaymentEntry(day2dayPaymentEntryInfo) {
   const schema = {
-    day2day_info: 			Joi.string().min(4).max(50).required(),
-    day2day_amount: 		Joi.string().min(2).max(50).required(),
+    day2day_info: 			Joi.string().min(2).max(50).required(),
+    day2day_amount: 		Joi.string().min(1).max(50).required(),
     day2dayPaymentType: 	Joi.required(),
     user_note: 				Joi.string().min(1).max(2040),
   };		
