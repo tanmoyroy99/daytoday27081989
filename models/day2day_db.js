@@ -76,6 +76,7 @@ function validateday2dayPaymentEntry(day2dayPaymentEntryInfo) {
     day2day_amount: 		Joi.string().min(1).max(50).required(),
     day2dayPaymentType: 	Joi.required(),
     user_note: 				Joi.string().min(1).max(2040),
+    datetime: 				Joi.string().min(1).max(20),
   };		
   return Joi.validate(day2dayPaymentEntryInfo, schema);
 }

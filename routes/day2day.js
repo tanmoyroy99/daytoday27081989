@@ -73,7 +73,7 @@ router.post('/info/', authentication, async (req, res) => {
 													day2dayPaymentType: req.body.day2dayPaymentType,
 													user_note: req.body.user_note,
 													system_note: JSON.stringify({"User Agent": user_agent, "IP Address":ip_address}),
-													datetime: Date.now(),
+													datetime: req.body.datetime,
 													status: true,
 												});
 	day2dayPaymentEntry = await day2dayPaymentEntry.save();
