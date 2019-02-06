@@ -97,7 +97,24 @@ router.get('/info/alljoin/', authentication, async (req, res) =>{
 	const day2dayPaymentEntryviewAll = await Day2dayPaymentEntry.find({ user_id: req.userdata._id})
 											.sort({datetime: 'asc'})
 											.populate('day2dayPaymentType', 'type_name -_id');
-	console.log(day2dayPaymentEntryviewAll);
+	res.send(day2dayPaymentEntryviewAll);
+});
+ 
+
+router.get('/info/queryData/', authentication, async (req, res) =>{
+
+	const day2dayPaymentEntryviewAll = await Day2dayPaymentEntry.find({ user_id: req.userdata._id})
+											.sort({datetime: 'asc'})
+											.select(req.query.name);
+	res.send(day2dayPaymentEntryviewAll);
+});
+
+
+router.post('/info/alljoinbyId/', authentication, async (req, res) =>{
+	const day2dayPaymentEntryviewAll = await Day2dayPaymentEntry.find({ user_id: req.userdata._id, _id:req.body.id})
+											.sort({datetime: 'asc'})
+											.populate('day2dayPaymentType', 'type_name -_id');
+	
 	res.send(day2dayPaymentEntryviewAll);
 });
 
