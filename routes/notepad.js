@@ -23,9 +23,9 @@ router.get('/add/',authentication, async (req, res) =>{
                     update_datetime:  Date.now(),
                     status: true,
                 }
-    option = { upsert: true, new: true, setDefaultsOnInsert : true}
+    let dataoption = { upsert: true, new: true, setDefaultsOnInsert : true}
 
-    notepadAdd = await Notepad.findOneAndUpdate({'user_id': req.userdata._id },notepadAdd,option);
+    notepadAdd = await Notepad.findOneAndUpdate({'user_id': req.userdata._id },notepadAdd,dataoption);
     res.send(notepadAdd);
 
 });
