@@ -12,7 +12,7 @@ router.get('/view/',authentication, async (req, res) =>{
 });
 
 
-router.get('/add/',authentication, async (req, res) =>{
+router.post('/add/',authentication, async (req, res) =>{
 	let user_agent= req.get('User-Agent');
     let ip_address = req.connection.remoteAddress;
     
