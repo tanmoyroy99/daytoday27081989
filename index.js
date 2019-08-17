@@ -30,7 +30,7 @@ winston.add(winston.transports.File, { filename: 'logfile.log' });
 
 
 
-mongoose.connect('mongodb://tanmoyroy:tanmoyroy123@ds149144.mlab.com:49144/daytwoday')
+mongoose.connect('mongodb://tanmoyroy:tanmoyroy123@ds149144.mlab.com:49144/daytwoday',{ useNewUrlParser: true })
 .then(()=> {console.log('DB connected...');
 	next();
 })
@@ -51,7 +51,7 @@ app.use('/api/genres',  genres);
 app.use('/api/users', users);
 app.use('/api/auth', auth);
 app.use('/api/day2day', day2day);
-app.use('/api/notepad',notepad)
+app.use('/api/notepad1',notepad)
 app.use(error);
 
 

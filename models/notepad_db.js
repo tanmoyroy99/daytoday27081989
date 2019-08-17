@@ -8,10 +8,10 @@ const notepad = new mongoose.Schema({
         type: String, required: true,  maxlength: 50
     },
     notepad: {
-        type: String, minlength: 3, maxlength: 20048,
+        type: String, minlength: 3, maxlength: 1048,
     },
     system_note: {
-        type: String, minlength: 3, maxlength: 2048,
+        type: String, minlength: 3, maxlength: 30048,
     },
     update_datetime: {
 		type: String, minlength: 5, maxlength: 50,  default: Date.now(),
