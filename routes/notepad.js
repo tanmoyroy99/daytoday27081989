@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const _ = require('lodash');
 const { Notepad } = require('../models/notepad_db');
 const authentication = require('../middleware/authentication');
 
