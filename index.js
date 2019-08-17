@@ -7,7 +7,7 @@ const genres = require('./routes/genres');
 const users = require('./routes/users');
 const auth = require('./routes/auth');
 const day2day = require('./routes/day2day');
-const notepad = require('./routes/day2day');
+const notepad = require('./routes/notepad');
 //const dbconnection = require('./models/dbconnection');
 const mongoose = require('mongoose');
 
