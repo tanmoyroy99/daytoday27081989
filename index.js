@@ -51,7 +51,7 @@ app.use('/api/genres',  genres);
 app.use('/api/users', users);
 app.use('/api/auth', auth);
 app.use('/api/day2day', day2day);
-app.use('/api/notepad1',notepad)
+app.use('/api/notepad',notepad)
 app.use(error);
 
 
