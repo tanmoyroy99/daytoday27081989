@@ -1,4 +1,5 @@
 require('express-async-errors');
+require('dotenv').config();
 const winston = require('winston');
 const error = require('./middleware/error');
 var express = require("express");
@@ -28,14 +29,17 @@ winston.add(winston.transports.File, { filename: 'logfile.log' });
 /* mongodb://tanmoy:tanmoy@127.0.0.1:27017/dressbook */ //----------AWS
 /* mongodb://tanmoyroy:tanmoyroy123@ds149144.mlab.com:49144/daytwoday */ //----------MLAB tanmoyroy99@gmail.com
 
+const db_user     = process.env.MONGO_DB_USER;
+const db_password = process.env.MONGO_DB_PASSWORD;
+const db_name     = process.env.MONGO_DB;
+const db_host     = process.env.MONGO_DB_HOST;
 
-
-mongoose.connect('mongodb://tanmoyroy:tanmoyroy123@ds149144.mlab.com:49144/daytwoday',{ useNewUrlParser: true })
+mongoose.connect(`mongodb+srv://${db_user}:${db_password}@${db_host}/${db_name}?retryWrites=true&w=majority`,{ useNewUrlParser: true })
 .then(()=> {console.log('DB connected...');
-	next();
+	// next();
 })
 .catch(err=> {
-	console.error(err);
+	console.error("DB Connection Failed: ",err);
 });
 
 /* -------------------------------------------------------------------------------------------------- */
@@ -50,8 +54,8 @@ app.use(express.json());
 app.use('/api/genres',  genres);
 app.use('/api/users', users);
 app.use('/api/auth', auth);
-app.use('/api/day2day', day2day);
-app.use('/api/notepad',notepad)
+app.use('/api/day2day',auth, day2day);
+app.use('/api/notepad',auth,notepad);
 app.use(error);
 
 
